@@ -1,0 +1,9 @@
+{
+  "policy_version": "1.1.0",
+  "model_version": "1.1.0",
+  "max_pd": 0.12,
+  "max_dti": 0.4,
+  "review_interaction": true,
+  "authorized_by": "simulacion_academica",
+  "real_credit_decisions": false
+}
