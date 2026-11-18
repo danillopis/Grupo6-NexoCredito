@@ -1,0 +1,84 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.1.0/schema.json",
+  "name": "NPL_por_cohorte_corte_junio_2025",
+  "position": {
+    "x": 10,
+    "y": 250,
+    "z": 1,
+    "width": 610,
+    "height": 390,
+    "tabOrder": 1
+  },
+  "visual": {
+    "visualType": "lineChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cohortes"
+                    }
+                  },
+                  "Property": "cohort"
+                }
+              },
+              "queryRef": "Cohortes.cohort",
+              "nativeQueryRef": "cohort"
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Cartera"
+                    }
+                  },
+                  "Property": "NPL cartera"
+                }
+              },
+              "queryRef": "Cartera.NPL cartera",
+              "nativeQueryRef": "NPL cartera"
+            }
+          ]
+        }
+      }
+    },
+    "visualContainerObjects": {
+      "title": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'NPL por cohorte corte junio 2025'"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "12D"
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  }
+}

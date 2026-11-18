@@ -1,0 +1,35 @@
+test_amount_missing_not_imputed (test_sistema.ContractTests.test_amount_missing_not_imputed) ... ok
+test_boolean_not_number (test_sistema.ContractTests.test_boolean_not_number) ... ok
+test_excess_dti (test_sistema.ContractTests.test_excess_dti) ... ok
+test_hotfix_guard (test_sistema.ContractTests.test_hotfix_guard) ... ok
+test_infinite (test_sistema.ContractTests.test_infinite) ... ok
+test_late_binary (test_sistema.ContractTests.test_late_binary) ... ok
+test_manual_high_dti (test_sistema.ContractTests.test_manual_high_dti) ... ok
+test_missing_field (test_sistema.ContractTests.test_missing_field) ... ok
+test_nan (test_sistema.ContractTests.test_nan) ... ok
+test_negative_income (test_sistema.ContractTests.test_negative_income) ... ok
+test_no_real_authorization (test_sistema.ContractTests.test_no_real_authorization) ... ok
+test_probability_finite (test_sistema.ContractTests.test_probability_finite) ... ok
+test_same_input_same_score (test_sistema.ContractTests.test_same_input_same_score) ... ok
+test_unknown_field (test_sistema.ContractTests.test_unknown_field) ... ok
+test_18000_scoring_rows (test_sistema.EvidenceTests.test_18000_scoring_rows) ... ok
+test_auc_can_improve_while_brier_worsens (test_sistema.EvidenceTests.test_auc_can_improve_while_brier_worsens) ... ok
+test_candidate_brier (test_sistema.EvidenceTests.test_candidate_brier) ... ok
+test_candidate_calibration (test_sistema.EvidenceTests.test_candidate_calibration) ... ok
+test_churn_is_exposure_weighted (test_sistema.EvidenceTests.test_churn_is_exposure_weighted) ... ok
+test_concept_bad_calibration (test_sistema.EvidenceTests.test_concept_bad_calibration) ... ok
+test_concept_invisible_to_psi (test_sistema.EvidenceTests.test_concept_invisible_to_psi) ... ok
+test_covariate_drift (test_sistema.EvidenceTests.test_covariate_drift) ... ok
+test_npl_reconciles (test_sistema.EvidenceTests.test_npl_reconciles) ... ok
+test_unique_application_ids (test_sistema.EvidenceTests.test_unique_application_ids) ... ok
+test_auc_inverse (test_sistema.MetricTests.test_auc_inverse) ... ok
+test_auc_perfect (test_sistema.MetricTests.test_auc_perfect) ... ok
+test_auc_ties (test_sistema.MetricTests.test_auc_ties) ... ok
+test_nonlinear_interaction_zero (test_sistema.MetricTests.test_nonlinear_interaction_zero) ... ok
+test_psi_empty_bin_finite (test_sistema.MetricTests.test_psi_empty_bin_finite) ... ok
+test_psi_identical (test_sistema.MetricTests.test_psi_identical) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.031s
+
+OK

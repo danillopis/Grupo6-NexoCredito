@@ -1,0 +1,7 @@
+cohort,order,phase
+2024-01,1,base
+2024-02,2,base
+2024-03,3,covariate
+2024-04,4,concept
+2024-05,5,concept
+2024-06,6,concept

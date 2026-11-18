@@ -1,0 +1,72 @@
+name: Grupo 6 - Calidad y entrega
+on:
+  push:
+    branches: [main, develop, 'feature/**', 'release/**', 'hotfix/**']
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: pip install -r requirements-dev.txt
+      - run: python src/experimento.py
+      - run: python -m unittest discover -s tests -v
+      - run: python src/generar_powerbi.py
+      - run: python src/validar_powerbi.py
+      - run: python src/generar_dashboard.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: evidencia-grupo6
+          path: |
+            resultados/
+            powerbi/
+            modelos/
+            dashboard.html
+  contenedor:
+    needs: verificar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: docker build --pull -t nexo-scoring:${{ github.sha }} .
+      - run: docker run -d --name scoring -p 127.0.0.1:8080:8080 nexo-scoring:${{ github.sha }}
+      - run: |
+          for intento in 1 2 3 4 5; do
+            if curl --fail http://127.0.0.1:8080/health; then exit 0; fi
+            sleep 2
+          done
+          exit 1
+      - run: docker inspect nexo-scoring:${{ github.sha }} > imagen.json
+      - run: docker save nexo-scoring:${{ github.sha }} -o imagen.tar
+      - uses: actions/upload-artifact@v4
+        with:
+          name: manifiesto-imagen
+          path: |
+            imagen.json
+            imagen.tar
+  validacion_release:
+    needs: [verificar, contenedor]
+    if: startsWith(github.ref, 'refs/heads/release/') || startsWith(github.ref, 'refs/heads/hotfix/')
+    runs-on: ubuntu-latest
+    environment: staging
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          name: manifiesto-imagen
+      - run: docker load -i imagen.tar
+      - run: docker run -d --name scoring-staging -p 127.0.0.1:8080:8080 nexo-scoring:${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: |
+          for intento in 1 2 3 4 5; do
+            if python src/smoke_http.py; then exit 0; fi
+            sleep 2
+          done
+          exit 1

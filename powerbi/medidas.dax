@@ -1,0 +1,37 @@
+NPL cartera = DIVIDE(SUM(Cartera[npl_balance]),SUM(Cartera[balance]))
+
+Saldo vivo = SUM(Cartera[balance])
+
+Solicitudes = COUNTROWS(Scoring)
+
+Tasa aprobacion = AVERAGE(Scoring[approved])
+
+Churn mensual medio = DIVIDE(SUM(CRM[churned]),SUM(CRM[active_start]))
+
+Conversion = DIVIDE(SUM(CRM[conversions]),SUM(CRM[contacted]))
+
+Resolucion SLA = DIVIDE(SUM(CRM[resolved_sla]),SUM(CRM[tickets]))
+
+Cobertura formacion = DIVIDE(SUM(CRM[trained]),SUM(CRM[staff]))
+
+Coste adquisicion = DIVIDE(SUM(CRM[campaign_cost]),SUM(CRM[conversions]))
+
+Exito API = DIVIDE(SUM(API[success]),SUM(API[requests]))
+
+P95 escenario = MAX(API[p95_ms])
+
+PSI score = AVERAGE(Monitor[psi_score])
+
+O E = AVERAGE(Monitor[oe])
+
+AUC = AVERAGE(Monitor[auc])
+
+Brier = AVERAGE(Monitor[brier])
+
+ECE = AVERAGE(Monitor[ece])
+
+Margen realizado = SUM(Politicas[realized_margin])
+
+Perdida realizada = SUM(Politicas[realized_loss])
+
+Aprobacion politica = DIVIDE(SUM(Politicas[approved]),SUM(Politicas[applications]))

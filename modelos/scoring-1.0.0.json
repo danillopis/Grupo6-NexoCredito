@@ -1,0 +1,19 @@
+{
+  "coefficients": [
+    -3.946268992994482,
+    2.7452427898977345,
+    1.6123004596501278,
+    0.8919100487174313,
+    -0.3133369753199053
+  ],
+  "nonlinear": false,
+  "features": [
+    "intercept",
+    "dti",
+    "utilization",
+    "prior_late",
+    "log_income"
+  ],
+  "version": "1.0.0",
+  "seed": 6112026
+}

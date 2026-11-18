@@ -1,0 +1,7 @@
+.git
+datos
+resultados
+tests
+powerbi
+*.bundle
+__pycache__

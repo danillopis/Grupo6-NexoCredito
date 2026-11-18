@@ -1,0 +1,9 @@
+{
+  "tipo": "prueba HTTP local secuencial, no SLA productivo",
+  "requests": 120,
+  "success": 120,
+  "invalid_status": 422,
+  "warmup": 20,
+  "p95_ms": 0.41954091284424067,
+  "p99_ms": 0.4764170153066516
+}
