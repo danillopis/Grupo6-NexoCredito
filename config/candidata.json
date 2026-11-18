@@ -3,7 +3,7 @@
   "model_version": "1.1.0",
   "max_pd": 0.12,
   "max_dti": 0.4,
-  "review_interaction": true,
+  "review_interaction": false,
   "authorized_by": "simulacion_academica",
   "real_credit_decisions": false
 }
